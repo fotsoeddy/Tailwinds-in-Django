@@ -1,13 +1,13 @@
 {
-  "name": "hooyia",
-  "version": "3.8.0",
+  "name": "django_tailwinds",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "start": "npm run dev",
     "build": "npm run build:clean && npm run build:tailwind",
-    "build:clean": "rimraf -i ./elearning_hooyia/static/css/dist/output.css",
-    "build:tailwind": "tailwindcss -i ./elearning_hooyia/static/css/dist/input.css -o ./elearning_hooyia/static/css/dist/output.css --minify",
-    "dev": "tailwindcss -i ./elearning_hooyia/static/css/dist/input.css -o ./elearning_hooyia/static/css/dist/output.css --watch --minify",
+    "build:clean": "rimraf -i ./static/css/output.css",
+    "build:tailwind": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify",
+    "dev": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch --minify",
     "tailwindcss": "node ./node_modules/tailwindcss/lib/cli.js"
   },
   "devDependencies": {

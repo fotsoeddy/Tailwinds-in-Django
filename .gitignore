@@ -1,1 +1,8 @@
-venv
+node_modules/
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+venv/
+.DS_Store
+static/css/output.css
