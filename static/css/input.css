@@ -1,0 +1,613 @@
+@import "tailwindcss";
+
+/* Load Montserrat Variable Font */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  /* Variable font supports a range of weights */
+  font-style: normal;
+  /* This file is italic-only */
+  font-display: swap;
+  /* Improves loading performance */
+}
+
+/* Lato Black */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-Black.ttf") format("truetype");
+  font-weight: 900; /* Black */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lato Black Italic */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-BlackItalic.ttf") format("truetype");
+  font-weight: 900; /* Black */
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Lato Bold */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lato Bold Italic */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-BoldItalic.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Lato Italic */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-Italic.ttf") format("truetype");
+  font-weight: 400; /* Regular (assuming this is the base italic style) */
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Lato Light */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-Light.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lato Light Italic */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-LightItalic.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Lato Regular */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lato Thin */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-Thin.ttf") format("truetype");
+  font-weight: 100; /* Thin */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lato Thin Italic */
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/Lato-ThinItalic.ttf") format("truetype");
+  font-weight: 100; /* Thin */
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  --breakpoint-sm: 315px;
+  --breakpoint-ms: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-ml: 1100px;
+  --breakpoint-xl: 1145px;
+
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-lato: "Lato", sans-serif;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-tiny: 0.625rem;
+  --text-xxs: 0.725rem;
+
+  --color-primary: #000080;
+  --color-secondary: #46A836;
+  --color-tertiary: #FB7245;
+  --color-tertiaryBlack: #ff6227;
+  --color-cancel: #676565;
+
+  --container-padding: 12px;
+  --container-padding-md: 2px;
+
+  --animation-movingY: move 3s linear infinite;
+  --animation-spin: spin 1s linear infinite;
+  --animation-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animation-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animation-bounce: bounce 1s infinite;
+}
+
+/* Rest of your file remains unchanged */
+
+@keyframes move {
+  50% {
+    transform: translateY(-1rem);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spring-entrance {
+  animation: springEntrance 2s ease-out forwards;
+}
+
+@keyframes springEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.bounce-once {
+  animation: bounce 2s ease-in-out 2; /* Runs once, 1s duration */
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleDot {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+}
+
+.animate-scaleDot {
+  animation: scaleDot 1.5s infinite ease-in-out;
+}
+
+.animation-delay-0 {
+  animation-delay: 0s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.confetti-piece {
+  position: absolute;
+  animation: confetti 5s ease-out forwards;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.collapsible-content {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+@layer components {
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-lato {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .btn-primary {
+    @apply m-auto bg-primary rounded-sm text-white font-montserrat font-medium;
+  }
+
+  .custom-form {
+    @apply py-10 px-10 w-full max-w-sm lg:max-w-lg flex flex-col justify-center bg-[#FFFEFE];
+  }
+
+  /* Define custom input styles */
+  .custom-input {
+    @apply text-sm px-4 py-2 border
+    border-gray-300 rounded-lg shadow-sm transition
+    duration-300 ease-in-out focus:-translate-y-1
+    focus:outline-blue-900 hover:shadow-sm hover:border-primary bg-white lg:w-full w-full m-auto;
+  }
+
+  .custom-label {
+    @apply block text-sm font-normal font-montserrat mt-4 ml-2;
+  }
+
+  .summary-label {
+    @apply block ml-0 text-sm font-normal font-montserrat text-start mb-2;
+  }
+
+  .custom-btn {
+    @apply w-full px-4 py-2 text-sm bg-primary font-semibold
+    text-white rounded-lg hover:bg-blue-950 transition duration-100 mt-4 m-auto lg:w-full font-montserrat;
+  }
+
+  .logo {
+    @apply block;
+  }
+
+  .menu-active {
+    @apply bg-[rgba(0,0,0,0.3)] border-l-white border-l-4
+  }
+
+  .admin-tab-active {
+    @apply bg-[#F8F8FF] border-l-white border-l-4
+  }
+
+  .sidebar-icon {
+    opacity: 1 !important; /* Ensure icons are always visible */
+  }
+
+  .modal-close-btn {
+    @apply fixed inset-0 flex items-center justify-center w-full bg-gray-400/50 backdrop-opacity-75 z-50;
+  }
+
+  .modal-content {
+    @apply relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 lg:p-11 transition-all duration-300 ease-in-out;
+  }
+
+  /* Ensure modal is centered and scrollable if content exceeds viewport height */
+  .modal-close-btn .modal-content {
+    max-height: calc(100vh - 2rem);
+    margin: 1rem;
+    transform: translateY(0);
+    animation: springEntrance 0.5s ease-out forwards;
+  }
+
+  .sidebar-text {
+    @apply opacity-0;
+    transition: opacity 0.3s ease;
+  }
+
+  .select-btn {
+    @apply w-full px-4 py-2 text-sm bg-gray-200 font-semibold
+    text-white rounded-lg hover:bg-gray-300 transition duration-100 mt-4 m-auto lg:w-full font-montserrat;
+
+  }
+
+  .active-tab {
+    @apply hover:bg-blue-950 bg-primary text-white;
+  }
+
+  .teacher-btn {
+    @apply my-14 rounded-md bg-primary text-white font-montserrat font-semibold px-8 py-2 text-sm mx-auto hover:bg-blue-950 transition duration-100;
+  }
+
+  .dismiss {
+    @apply my-14 rounded-md bg-cancel text-white font-montserrat font-semibold px-8 py-2 text-sm mx-auto hover:bg-gray-700 transition duration-100;
+  }
+
+  .google-btn {
+    @apply flex items-center justify-evenly lg:-space-x-24 w-full px-4 py-2 text-sm bg-white font-semibold
+    text-black rounded-lg hover:bg-gray-50 transition duration-300 mb-2 border border-gray-400 m-auto mt-2;
+  }
+
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .form-shadow {
+    @apply shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-sm shadow-primary/10;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.5s ease-out;
+  }
+
+  .no-spinners {
+    /* Webkit browsers (Chrome, Safari, Edge) */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    /* Firefox */
+  }
+
+  .no-spinners::-webkit-inner-spin-button,
+  .no-spinners::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3) translateX(20px);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.05) translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .datatable {
+    @apply w-full border-collapse bg-white rounded-lg font-montserrat shadow-md;
+    min-width: 600px;
+  }
+
+  .datatable th {
+    @apply md:px-4 lg:px-6 bg-blue-100 text-gray-800 py-3 px-4 text-left font-semibold text-sm;
+  }
+
+  .datatable tr {
+
+    @apply px-2 md:px-4 lg:px-6 hover:bg-gray-50 transition duration-200 ease-in-out;
+  }
+
+  .datatable tr:nth-child(even) {
+    @apply bg-gray-100;
+  }
+
+  .datatable td {
+    @apply py-4 px-4 font-montserrat text-sm;
+    /* Increased vertical padding */
+  }
+
+  .datatable-container {
+    @apply w-full overflow-x-auto;
+  }
+
+  .datatable-container::-webkit-scrollbar {
+    height: 8px; /* Height of the horizontal scrollbar */
+  }
+
+  .datatable-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+    border-radius: 4px;
+  }
+
+  .datatable-container::-webkit-scrollbar-thumb {
+    background: #888; /* Thumb color */
+    border-radius: 4px;
+  }
+
+  .datatable-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
+  }
+
+  /* Status badges */
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium inline-flex items-center m-auto;
+  }
+
+  .status-draft {
+    @apply bg-orange-100 text-orange-800;
+    /* Matches #FFA500 (orange) in screenshot */
+  }
+
+  .status-completed {
+    @apply bg-green-100 text-green-800;
+    /* Matches #008000 (green) in screenshot */
+  }
+
+  .status-canceled {
+    @apply bg-red-100 text-red-800;
+    /* Matches #FF0000 (red) in screenshot */
+  }
+
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .pagination {
+    @apply flex items-center justify-center md:justify-end space-x-2;
+  }
+
+  /* Pagination Buttons (Previous, Next, Page Numbers) */
+  .pagination-button {
+    @apply p-2 px-3 rounded-md font-semibold bg-white border border-gray-200 hover:bg-gray-100 transition duration-200;
+  }
+
+  /* Active Page Button */
+  .pagination-button-active {
+    @apply bg-primary text-white border border-primary;
+  }
+
+  /* Disabled Pagination Buttons */
+  .pagination-button-disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Ellipsis (for "..." between page numbers) */
+  .pagination-ellipsis {
+    @apply p-2 px-3 text-gray-500;
+  }
+
+  /* Previous and Next Buttons */
+  .pagination-nav-button {
+    @apply p-2 text-white font-semibold rounded-md bg-primary border border-gray-200 hover:bg-blue-950 transition duration-200;
+  }
+
+  /* SVG Icons for Previous and Next Buttons */
+  .pagination-nav-icon {
+    @apply size-6;
+  }
+
+  .badge-coupon {
+    @apply px-4 py-2 m-auto
+  }
+
+  /* video player */
+  .video-controls {
+    @apply absolute bottom-0 left-0 right-0 bg-gray-800/80 backdrop-blur-sm p-4 flex items-center justify-between transition-all duration-300;
+  }
+
+  .video-control-btn {
+    @apply text-white hover:bg-gray-700/50 p-2 rounded-full transition duration-200 font-montserrat;
+  }
+
+  .video-control-select {
+    @apply bg-gray-700 text-white rounded-lg px-3 py-1 text-sm font-montserrat focus:outline-none hover:bg-gray-600 transition duration-200;
+  }
+
+  @media (pointer: coarse) {
+    .view-plus {
+      display: block !important;
+    }
+  }
+
+  .view-plus.light .dot,
+  .view-plus.light .cross {
+    color: #000000; /* Black for light video background */
+  }
+
+  .view-plus.dark .dot,
+  .view-plus.dark .cross {
+    color: #ffffff; /* White for dark video background */
+  }
+
+  #video-loader {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* 300ms fade-out effect */
+  }
+
+  #video-loader.hidden {
+    opacity: 0;
+  }
+
+  /* Offcanvas */
+  #settings-offcanvas {
+    @apply absolute top-0 right-0 h-full w-80 bg-gray-800/80 backdrop-opacity-70 text-white transform translate-x-full transition-transform duration-300 z-19 not-[.not-error]:shadow-[-4px_0_8px_rgba(0,0,0,0.3)];
+  }
+
+  #settings-offcanvas.open {
+    @apply !translate-x-0;
+  }
+
+  #offcanvas-backdrop {
+    @apply hidden absolute inset-0 bg-black/50 z-10;
+  }
+
+  #offcanvas-backdrop.show {
+    @apply !block;
+  }
+
+  /* Modal */
+  #settings-modal {
+    @apply absolute inset-0 hidden flex items-center justify-center z-20;
+  }
+
+  #settings-modal.show {
+    @apply !flex;
+  }
+
+  #modal-content {
+    @apply relative bg-gray-800 text-white p-6 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto;
+  }
+
+  #modal-backdrop {
+    @apply absolute inset-0 bg-black/50 z-[-1];
+  }
+
+  /* Radio inputs for quality */
+  .quality-radio {
+    @apply hidden;
+  }
+
+  .quality-label {
+    @apply block p-2 m-1 bg-gray-600 rounded cursor-pointer transition-colors duration-200 font-montserrat text-xs;
+  }
+
+  .quality-radio:checked + .quality-label {
+    @apply border-1 border-white font-semibold;
+  }
+
+  .quality-label:hover {
+    @apply bg-gray-500;
+  }
+
+  /* Speed presets */
+  .speed-preset {
+    @apply inline-block px-2 py-1 m-1 bg-gray-600 rounded cursor-pointer text-white font-montserrat hover:bg-gray-500 text-xs;
+  }
+}
